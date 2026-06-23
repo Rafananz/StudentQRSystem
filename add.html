@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<h1>Add Student</h1>
+
+<form id="studentForm">
+    <input type="text" id="id" placeholder="Student ID" required><br><br>
+    <input type="text" id="fname" placeholder="First Name" required><br><br>
+    <input type="text" id="mname" placeholder="Middle Name"><br><br>
+    <input type="text" id="lname" placeholder="Last Name" required><br><br>
+    <input type="text" id="year" placeholder="Year" required><br><br>
+    <input type="text" id="section" placeholder="Section" required><br><br>
+    <input type="email" id="email" placeholder="Email"><br><br>
+    <input type="text" id="contact" placeholder="Contact Number"><br><br>
+    <button type="submit">Save Student</button>
+</form>
+
+<!-- QR Modal -->
+<div id="qrModal">
+    <div id="qrBox">
+        <h2>Student QR Code</h2>
+        <div id="qrcode"></div>
+        <p>Scan this QR to view student details</p>
+        <button id="printBtn" onclick="window.print()">🖨️ Print</button>
+        <button id="closeBtn">Close & Go Back</button>
+    </div>
+</div>
+
+<script type="module" src="js/add.js"></script>
+
+</body>
+</html>
