@@ -27,6 +27,15 @@ if (editId) {
         document.getElementById("email").value = s.email;
         document.getElementById("contact").value = s.contact;
     }
+
+    // 🔒 Lock the Student ID field when editing
+    document.getElementById("id").setAttribute("readonly", true);
+    document.getElementById("id").style.backgroundColor = "#f0f0f0";
+    document.getElementById("id").style.cursor = "not-allowed";
+
+    // Update page title to reflect edit mode
+    document.querySelector(".page-title").textContent = "Edit Student";
+    document.querySelector(".page-subtitle").textContent = "Update the student information below.";
 }
 
 // SAVE (ADD OR UPDATE)
@@ -44,8 +53,9 @@ form.addEventListener("submit", async function (e) {
         contact: document.getElementById("contact").value
     };
 
-    // Save to Firestore
-    await setDoc(doc(db, "students", student.studentId), student);
+    // ✅ Use editId (original) when editing, student.studentId when adding
+    const docId = editId ? editId : student.studentId;
+    await setDoc(doc(db, "students", docId), student);
 
     // Generate QR instead of redirecting immediately
     generateQR(student.studentId);
@@ -53,10 +63,8 @@ form.addEventListener("submit", async function (e) {
 
 // GENERATE QR
 function generateQR(studentId) {
-    // Clear previous QR if any
     document.getElementById("qrcode").innerHTML = "";
 
-    // Hardcoded GitHub Pages URL
     const studentURL = `https://rafananz.github.io/StudentQRSystem/student.html?id=${studentId}`;
 
     new QRCode(document.getElementById("qrcode"), {
@@ -68,7 +76,6 @@ function generateQR(studentId) {
         correctLevel: QRCode.CorrectLevel.H
     });
 
-    // Show modal
     qrModal.classList.add("show");
 }
 
