@@ -26,8 +26,8 @@ async function loadStudents() {
                 <td>${s.firstName} ${s.lastName}</td>
                 <td>${s.year} - ${s.section}</td>
                 <td>
-                    <button onclick="editStudent('${s.studentId}')">Edit</button>
-                    <button onclick="deleteStudent('${s.studentId}')">Delete</button>
+                    <button class="btn btn-primary" onclick="editStudent('${s.studentId}')">Edit</button>
+                    <button class="btn btn-secondary" onclick="deleteStudent('${s.studentId}')">Delete</button>
                 </td>
             </tr>
         `;
