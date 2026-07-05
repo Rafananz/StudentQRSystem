@@ -21,8 +21,9 @@ if (!studentId) {
         document.getElementById("year").textContent = s.year;
         document.getElementById("section").textContent = s.section;
         document.getElementById("email").textContent = s.email || "N/A";
-        document.getElementById("contact").textContent = s.contact || "N/A";
+        document.getElementById("emergencycontact").textContent = s.emergency_contact || "N/A";
         document.getElementById("studentCard").style.display = "block";
+        document.getElementById("adviser").textContent = s.adviser || "N/A";
     } else {
         document.getElementById("error").style.display = "block";
         document.getElementById("error").textContent = "Student not found.";

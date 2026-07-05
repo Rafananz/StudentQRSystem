@@ -25,7 +25,8 @@ if (editId) {
         document.getElementById("year").value = s.year;
         document.getElementById("section").value = s.section;
         document.getElementById("email").value = s.email;
-        document.getElementById("contact").value = s.contact;
+        document.getElementById("emergencycontact").value = s.emergency_contact;
+        document.getElementById("adviser").value = s.adviser;
     }
 
     // 🔒 Lock the Student ID field when editing
@@ -50,7 +51,8 @@ form.addEventListener("submit", async function (e) {
         year: document.getElementById("year").value,
         section: document.getElementById("section").value,
         email: document.getElementById("email").value,
-        contact: document.getElementById("contact").value
+        emergency_contact: document.getElementById("emergencycontact").value,
+        adviser: document.getElementById("adviser").value,
     };
 
     // ✅ Use editId (original) when editing, student.studentId when adding

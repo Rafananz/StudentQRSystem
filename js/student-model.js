@@ -7,7 +7,8 @@ class Student {
         year,
         section,
         email,
-        contact
+        emergency_contact,
+        adviser,
     ) {
         this.studentId = studentId;
         this.firstName = firstName;
@@ -16,6 +17,7 @@ class Student {
         this.year = year;
         this.section = section;
         this.email = email;
-        this.contact = contact;
+        this.emergency_contact = emergency_contact;
+        this.adviser = adviser;
     }
 }
